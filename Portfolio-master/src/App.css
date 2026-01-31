@@ -1,5 +1,62 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  width: 100%;
+  overflow-x: hidden;
+  background-color: var(--body-color);
+  color: var(--text-color);
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button,
+input,
+textarea {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+}
+
+h1,
+h2,
+h3 {
+  color: var(--title-color);
+  font-weight: var(--font-semi-bold);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+
 /* Light mode colors */
 :root {
   --header-height: 3rem;
@@ -69,18 +126,6 @@
   --toggle-slider-bg-hover: #f0f0f0;
 }
 
-body {
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.container {
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.section {
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
 /* Responsive typography */
 @media screen and (max-width: 992px) {
   :root {
@@ -92,55 +137,6 @@ body {
     --small-font-size: 0.813rem;
     --smaller-font-size: 0.75rem;
   }
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body,
-button,
-input,
-textarea {
-  font-family: var(--body-font);
-  font-size: var(--normal-font-size);
-}
-
-body {
-  background-color: var(--body-color);
-  color: var(--text-color);
-}
-
-h1,
-h2,
-h3 {
-  color: var(--title-color);
-  font-weight: var(--font-semi-bold);
-}
-
-ul {
-  list-style: none;
-}
-
-a {
-  text-decoration: none;
-}
-
-button {
-  cursor: pointer;
-  border: none;
-  outline: none;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
 }
 
 ::-webkit-scrollbar {
@@ -177,6 +173,8 @@ img {
 /*=============== REUSABLE CSS CLASSES ===============*/
 .section {
   padding: 6rem 0 2rem;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .section__title {
@@ -200,11 +198,19 @@ img {
   max-width: 968px;
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .grid {
   display: grid;
   gap: 1.5rem;
+}
+
+.main {
+  width: 100%;
+  overflow-x: hidden;
 }
 
 /*=============== BUTTONS ===============*/
@@ -264,6 +270,24 @@ img {
 }
 
 @media screen and (max-width: 576px) {
+  .section {
+    padding: 2rem 0 3rem;
+  }
+
+  .container {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    width: calc(100% - 2rem);
+  }
+
+  body {
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  html {
+    overflow-x: hidden;
+  }
 }
 
 /* For small devices */

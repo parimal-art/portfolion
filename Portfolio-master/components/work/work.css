@@ -21,10 +21,13 @@
 }
 
 .work__container {
-	grid-template-columns: repeat(2, max-content);
-	gap: 3rem;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 2rem;
 	justify-content: center;
 	position: relative;
+	width: 100%;
+	max-width: 700px;
+	margin: 0 auto;
 }
 
 .work__card {
@@ -44,7 +47,9 @@
 }
 
 .work__img {
-	width: 295px;
+	width: 100%;
+	max-width: 295px;
+	height: auto;
 	border-radius: 1rem;
 	margin-bottom: var(--mb-1);
 }
@@ -238,7 +243,9 @@
 
 @media screen and (max-width: 992px) {
 	.work__container {
-		gap: 1.25rem;
+		grid-template-columns: 1fr;
+		gap: 1.5rem;
+		max-width: 100%;
 	}
 
 	.work__card {

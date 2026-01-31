@@ -1,7 +1,10 @@
 .exp__container {
-   grid-template-columns: repeat(3, 270px);
+   grid-template-columns: repeat(3, 1fr);
    justify-content: center;
-   column-gap: 1.8rem;
+   column-gap: 1.5rem;
+   width: 100%;
+   max-width: 900px;
+   margin: 0 auto;
 }
 
 .exp__content {

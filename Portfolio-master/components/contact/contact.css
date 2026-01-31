@@ -1,8 +1,11 @@
 .contact__container {
-    grid-template-columns: repeat(2, max-content);
+    grid-template-columns: repeat(2, 1fr);
     justify-content: center;
-    column-gap: 6rem;
+    column-gap: 3rem;
     padding-bottom: 3rem;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .contact__title {
@@ -15,7 +18,7 @@
 .contact__info {
     display: grid;
     row-gap: 1rem;
-    grid-template-columns: 300px;
+    grid-template-columns: 1fr;
 }
 
 .contact__card {
@@ -65,7 +68,8 @@
 }
 
 .contact__form {
-    width: 360px;
+    width: 100%;
+    max-width: 360px;
 }
 
 .uil-message,
@@ -138,9 +142,13 @@
 @media screen and (max-width: 576px) {
     .contact__info {
         grid-template-columns: 1fr;
+        width: calc(100% - 2rem);
+        margin: 0 1rem;
     }
 
     .contact__form {
-       width: 100%; 
+       width: calc(100% - 2rem);
+       margin: 0 1rem;
+       box-sizing: border-box;
     }
 }
