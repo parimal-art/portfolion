@@ -193,9 +193,24 @@
 	margin-left: 0.25rem;
 }
 
-.theme-toggle-mobile {
-	display: none;
+.theme-toggle-desktop {
+  display: block;
 }
+
+.theme-toggle-mobile {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .theme-toggle-desktop {
+    display: none;
+  }
+
+  .theme-toggle-mobile {
+    display: block;
+  }
+}
+
 
 @media screen and (max-width: 768px) {
 	.header {
@@ -351,4 +366,32 @@
 
 
 
+/* Gradient text for header */
+.header .nav__logo,
+.header .nav__link,
+.header .nav__icon {
+  background: linear-gradient(45deg, #ff5757, #ffc043);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
+/* Active & hover remain brighter */
+.header .active-link,
+.header .nav__link:hover {
+  background: linear-gradient(45deg, #ffc043, #ff5757);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Theme toggle icon gradient */
+.theme-toggle-button {
+  background: linear-gradient(45deg, #ff5757, #ffc043);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+.header .nav__logo,
+.header .nav__link {
+  text-shadow: 0 0 12px rgba(255, 87, 87, 0.35);
+}
