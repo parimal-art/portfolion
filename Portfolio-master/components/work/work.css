@@ -328,3 +328,14 @@
 		column-gap: 0.25rem;
 	}
 }
+
+
+.work__title {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.work__button-container {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
