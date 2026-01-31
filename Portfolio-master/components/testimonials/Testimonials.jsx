@@ -1,134 +1,115 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import "./testimonial.css";
 import { Data } from "./Data";
 
+const variants = {
+  enter: (direction) => ({
+    opacity: 0,
+    x: direction > 0 ? 80 : -80,
+    scale: 0.98,
+    filter: "blur(4px)",
+  }),
+  center: {
+    opacity: 1,
+    x: 0,
+    scale: 1,
+    filter: "blur(0px)",
+    transition: {
+      type: "spring",
+      stiffness: 120,
+      damping: 20,
+    },
+  },
+  exit: (direction) => ({
+    opacity: 0,
+    x: direction > 0 ? -80 : 80,
+    scale: 0.98,
+    filter: "blur(4px)",
+    transition: {
+      duration: 0.3,
+      ease: "easeInOut",
+    },
+  }),
+};
+
 const Testimonials = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(1);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setDirection(1);
-      setCurrentIndex((prev) => (prev + 1) % Data.length);
+      setIndex((prev) => (prev + 1) % Data.length);
     }, 5000);
-
     return () => clearInterval(interval);
   }, []);
 
-  const nextTestimonial = () => {
+  const next = () => {
     setDirection(1);
-    setCurrentIndex((prev) => (prev + 1) % Data.length);
+    setIndex((prev) => (prev + 1) % Data.length);
   };
 
-  const prevTestimonial = () => {
+  const prev = () => {
     setDirection(-1);
-    setCurrentIndex((prev) => (prev - 1 + Data.length) % Data.length);
-  };
-
-  // smoother variants
-  const slideVariants = {
-    enter: (direction) => ({
-      x: direction > 0 ? 200 : -200,
-      opacity: 0,
-      scale: 0.95,
-    }),
-    center: {
-      x: 0,
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.6,
-        ease: "easeInOut",
-      },
-    },
-    exit: (direction) => ({
-      x: direction > 0 ? -200 : 200,
-      opacity: 0,
-      scale: 0.95,
-      transition: {
-        duration: 0.6,
-        ease: "easeInOut",
-      },
-    }),
+    setIndex((prev) => (prev - 1 + Data.length) % Data.length);
   };
 
   return (
     <section className="testimonial container section" id="testimonials">
-      <motion.h2
-        className="section__title"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        What People Say
-      </motion.h2>
-
-      <motion.span
-        className="section__subtitle"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-      >
-        Testimonial
-      </motion.span>
+      <h2 className="section__title">What People Say</h2>
+      <span className="section__subtitle">Testimonials</span>
 
       <div className="testimonial__container">
+        {/* Prev Button */}
         <button
           className="carousel__button carousel__button--prev"
-          onClick={prevTestimonial}
+          onClick={prev}
+          aria-label="Previous testimonial"
         >
-          &lt;
+          <ChevronLeft size={22} />
         </button>
 
-        <AnimatePresence mode="wait" custom={direction}>
-          <div className="testimonial__content-wrapper">
+        {/* Content */}
+        <div className="testimonial__content-wrapper">
+          <AnimatePresence custom={direction} mode="wait">
             <motion.div
-              key={currentIndex}
+              key={index}
               custom={direction}
-              variants={slideVariants}
+              variants={variants}
               initial="enter"
               animate="center"
               exit="exit"
               className="testimonial__card"
             >
               <div className="testimonial__flex">
-                <motion.div
-                  className="testimonial__image-container"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.4 }}
-                >
-                  <img
-                    src={Data[currentIndex].image}
-                    alt={Data[currentIndex].title}
-                    className="testimonial__img"
-                  />
-                </motion.div>
+                <img
+                  src={Data[index].image}
+                  alt={Data[index].title}
+                  className="testimonial__img"
+                />
 
-                <motion.div
-                  className="testimonial__text-content"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.1 }}
-                >
+                <div className="testimonial__text-content">
                   <h3 className="testimonial__name">
-                    {Data[currentIndex].title}
+                    {Data[index].title}
                   </h3>
                   <p className="testimonial__description">
-                    {Data[currentIndex].description}
+                    {Data[index].description}
                   </p>
-                </motion.div>
+                </div>
               </div>
             </motion.div>
-          </div>
-        </AnimatePresence>
+          </AnimatePresence>
+        </div>
 
+        {/* Next Button */}
         <button
           className="carousel__button carousel__button--next"
-          onClick={nextTestimonial}
+          onClick={next}
+          aria-label="Next testimonial"
         >
-          &gt;
+          <ChevronRight size={22} />
         </button>
       </div>
     </section>

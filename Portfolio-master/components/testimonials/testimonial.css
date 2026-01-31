@@ -1,9 +1,9 @@
 .testimonial__container {
     width: 100%;
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
     position: relative;
-    padding: 0 2rem;
+    padding: 0 3rem;
 }
 
 /* Wrapper */
@@ -22,7 +22,7 @@
     width: 100%;
 
     /* Smooth transition */
-    transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+    /* transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out; */
 }
 
 /* Flex layout */
