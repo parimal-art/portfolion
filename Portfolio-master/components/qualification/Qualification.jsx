@@ -16,11 +16,6 @@ const Qualification = () => {
     visible: { opacity: 1, y: 0 },
   };
 
-  const lineVariants = {
-    hidden: { height: 0 },
-    visible: { height: "100%" },
-  };
-
   return (
     <section className="qualification section" id="qualification">
       <h2 className="section__title">My Qualification 🎓</h2>
@@ -44,6 +39,7 @@ const Qualification = () => {
           >
             {/* ===== Education 1 ===== */}
             <motion.div className="qualification__data" variants={dataVariants}>
+              {/* Left */}
               <div>
                 <h3 className="qualification__title">
                   B.Tech in CSE (AI & ML)
@@ -56,27 +52,26 @@ const Qualification = () => {
                 </div>
               </div>
 
-              <div>
-                <motion.span className="qualification__round" />
-                <motion.span
-                  className="qualification__line"
-                  variants={lineVariants}
-                />
+              {/* Middle (dot only) */}
+              <div className="qualification__middle">
+                <span className="qualification__round"></span>
               </div>
+
+              {/* Right (empty for first row) */}
+              <div></div>
             </motion.div>
 
             {/* ===== Education 2 ===== */}
             <motion.div className="qualification__data" variants={dataVariants}>
+              {/* Left empty */}
               <div></div>
 
-              <div>
-                <motion.span className="qualification__round" />
-                <motion.span
-                  className="qualification__line"
-                  variants={lineVariants}
-                />
+              {/* Middle */}
+              <div className="qualification__middle">
+                <span className="qualification__round"></span>
               </div>
 
+              {/* Right */}
               <div>
                 <h3 className="qualification__title">
                   Higher Secondary (PCM)
@@ -92,6 +87,7 @@ const Qualification = () => {
 
             {/* ===== Education 3 ===== */}
             <motion.div className="qualification__data" variants={dataVariants}>
+              {/* Left */}
               <div>
                 <h3 className="qualification__title">
                   Madhyamik (Class 10)
@@ -104,10 +100,13 @@ const Qualification = () => {
                 </div>
               </div>
 
-              <div>
-                <motion.span className="qualification__round" />
-                {/* last item → line optional */}
+              {/* Middle */}
+              <div className="qualification__middle">
+                <span className="qualification__round"></span>
               </div>
+
+              {/* Right empty */}
+              <div></div>
             </motion.div>
           </motion.div>
         </div>
