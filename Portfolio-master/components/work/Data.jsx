@@ -8,8 +8,28 @@ import Work8 from '../../src/assets/Work8.png';
 import Work9 from '../../src/assets/Work9.png';
 import Work10 from '../../src/assets/Work10.png';
 import Work11 from '../../src/assets/Work11.png';
+import Work12 from '../../src/assets/Work12.png';
+import Work13 from '../../src/assets/Work13.png';
 
 export const projectsData = [
+  {
+  id: 11,
+  image: Work12,
+  title: 'AI DDR Builder – Property Analyzer',
+  category: 'Full Stack',
+  demoUrl: 'https://ddr-builder-nv3r.vercel.app/', 
+  sourceUrl: 'https://github.com/parimal-art/DDR_Builder', 
+  status: 'completed',
+},
+{
+  id: 12,
+  image: Work13,
+  title: 'RapidCode – AI Coding Platform',
+  category: 'Full Stack',
+  demoUrl: '#', 
+  sourceUrl: 'https://github.com/tanmoy215/RapidCode-T', 
+  status: 'completed',
+},
   {
     id: 1,
     image: Work1,
